@@ -1,0 +1,29 @@
+<div class="container">
+    <form [formGroup]="this.studentService.form" (ngSubmit)="onSubmit()">
+        <div style="text-align:left">
+            Name*<br/>
+        </div>
+        <input type="text" class="form-control" placeholder="Name" formControlName="name">
+        <p *ngIf="this.studentService.form.controls['name'].invalid && (this.studentService.form.controls['name'].dirty || this.studentService.form.controls['name'].touched)">
+            Invalid Name
+        </p>
+        <div style="text-align:left">
+            Email ID*<br/>
+        </div>
+        <input type="text" class="form-control" placeholder="Email ID" formControlName="email">
+        <p *ngIf="this.studentService.form.controls['email'].invalid && (this.studentService.form.controls['email'].dirty || this.studentService.form.controls['email'].touched)">
+            Invalid Email
+        </p>
+        <div style="text-align:left">
+            Address*<br/>
+        </div>
+        <input type="text" class="form-control" placeholder="Address" formControlName="address">
+        <p *ngIf="this.studentService.form.controls['address'].invalid && (this.studentService.form.controls['address'].dirty || this.studentService.form.controls['address'].touched)">
+            Invalid Address
+        </p>
+        <br/>
+        <div class="form-group">
+          <input type="submit" class="btn btn-outline-success" value="Submit" [disabled]="!this.studentService.form.valid">
+        </div>
+      </form>
+    </div>

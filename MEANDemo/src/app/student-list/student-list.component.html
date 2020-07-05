@@ -1,0 +1,26 @@
+<div class="container">
+      <table class="table table">
+        <thead>
+          <th>Name</th>
+          <th>Email ID</th>
+          <th>Address</th>
+          <th></th>
+        </thead>
+        <ng-container *ngFor="let student of (student$ | async)">
+          <tr class="table">
+            <td>{{student.name}}</td>
+            <td>{{student.email}}</td>
+              <td>{{student.address}}</td>
+              <td>
+                <button class="btn btn-outline-info" (click)="studentService.populateForm(student)">Edit</button>
+              </td>
+              <td>
+                    <button class="btn btn-outline-danger" (click)="onDelete(student)">Remove</button>
+              </td>
+          </tr>
+        </ng-container>
+      </table>
+      <div class="alert alert-danger" *ngIf="showDeletedMessage">
+        Deleted successfully
+      </div>
+</div>
